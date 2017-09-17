@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        input {
+            border: 0;
+            border: 1px solid #ccc;
+            width: 300px;
+            height: 30px;
+            margin: 10px;
+            outline-style: none;
+            padding-left: 10px;
+            font-size: 18px;
+        }
+
+        .wrong {
+            border: 1px solid red;
+        }
+
+        .wrong-span {
+            color: red;
+            height: 30px;
+            line-height: 30px;
+        }
+        .right {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+账号:<input type="text" id="zhanghao"><span id="sp1"></span><br/>
+密码:<input type="password"id="mima"><span id="sp2"></span><br/>
+确认密码:<input type="password" id="queren"><span id="sp3"></span><br/>
+</body>
+<script>
+    var aHao=document.getElementById("zhanghao")
+    var aSp1=document.getElementById("sp1")
+    var aMi=document.getElementById("mima")
+    var aSp2=document.getElementById("sp2")
+    var aQue=document.getElementById("queren")
+    var aSp3=document.getElementById("sp3")
+    aHao.onblur=function(){
+        if(this.value===""){
+            aSp1.innerHTML="请输入账号"
+        }
+    }
+    aHao.oninput=function(){
+        if(this.value.length<6 || this.value.length>12){
+            aSp1.innerHTML="输入6~12账号";
+            aSp1.className="wrong-span"
+            this.className="wrong"
+        }else{
+            aSp1.innerHTML="输入正确";
+            aSp1.className="right"
+            this.className=""
+        }
+    }
+    aMi.onblur=function(){
+        if(this.value===""){
+            aSp2.innerHTML="请输入密码"
+        }
+    }
+    aMi.oninput=function(){
+        if(this.value.length<6 || this.value.length>12){
+            aSp2.innerHTML="输入6~12位密码";
+            aSp2.className="wrong-span"
+            this.className="wrong"
+        }else{
+            aSp2.innerHTML="输入正确";
+            aSp2.className="right"
+            this.className=""
+        }
+    }
+    aQue.onblur=function(){
+        if(this.value===""){
+            aSp3.innerHTML="请确认密码"
+        }
+        if(this.value.length<6 || this.value.length>12) {
+            aSp3.innerHTML = "输入6~12位密码"
+        }else
+        if(this.value===aMi.value){
+            aSp3.innerHTML="密码正确"
+        }else{
+            aSp3.innerHTML="密码不一致"
+            aSp3.className="right"
+        }
+    }
+
+
+</script>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<input type="text" value="你好">
+</body>
+<script>
+    var aText=document.getElementsByTagName("input")[0]
+
+    aText.onfocus=function() {
+        if (this.value == "你好") {
+            this.value = "";
+        }
+    }
+    aText.onblur=function() {
+        if (this.value == "") {
+            this.value = "你好";
+        }
+    }
+
+</script>
+</html>

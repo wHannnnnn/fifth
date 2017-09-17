@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        input {
+            border: 0;
+            border: 1px solid #ccc;
+            width: 300px;
+            height: 30px;
+            margin: 10px;
+            outline-style: none;
+            padding-left: 10px;
+            font-size: 18px;
+        }
+
+        .wrong {
+            border: 1px solid red;
+        }
+
+        .wrong-span {
+            color: red;
+            height: 30px;
+            line-height: 30px;
+        }
+        .right {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+账号: <input type="text" id="hao" ><span id="sp"></span><br/>
+密码: <input type="password" id="ma"><span id="sp2"></span><br/>
+确认密码: <input type="password" id="que"><span id="sp3"></span><br/>
+</body>
+<script>
+    var aHao=document.getElementById("hao");
+    var aMa=document.getElementById("ma");
+    var aQue=document.getElementById("que");
+    var aSp=document.getElementById("sp")
+    var aSp2=document.getElementById("sp2")
+    var aSp3=document.getElementById("sp3")
+    aHao.onblur=function(){      //是否有内容 没有内容
+        if(this.value==""){
+
+            aSp.innerHTML="请输入内容"
+        }
+    }
+    aHao.oninput=function(){  //有内容 是否6-12个字符
+        if(this.value.length<6 || this.value.length>12){
+            aSp.innerHTML="输入的内容应该在6-12个字符之间"
+            aSp.className="wrong-span"
+            this.className="wrong"
+        }
+        else{
+            aSp.innerHTML="输入正确"
+            aSp.className="right"
+        }
+    }
+     aMa.onblur=function(){
+         if(this.value==""){
+             aSp2.innerHTML="请输入密码"
+         }
+     }
+    aMa.oninput=function(){
+        if(this.value.length>=6 && this.value.length<=12){
+            aSp2.innerHTML="输入正确"
+        }else{
+            aSp2.innerHTML="请输入6~12位密码"
+        }
+    }
+    aQue.onblur=function(){
+        if(this.value===""){
+            aSp3.innerHTML="请确认密码"
+        }
+        if(this.value.length<6 || this.value.length>12) {
+            aSp3.innerHTML = "输入6~12位密码"
+        }else
+        if(this.value===aMa.value){
+            aSp3.innerHTML="密码正确"
+        }else{
+            aSp3.innerHTML="密码不一致"
+            aSp3.className="right"
+        }
+    }
+
+</script>
+</html>

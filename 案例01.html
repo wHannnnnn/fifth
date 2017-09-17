@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<!--点击按钮禁用文本框-->
+<input type="button" value="禁用" id="but">
+<input type="text" id="te">
+</body>
+<script>
+    var aBut=document.getElementById("but")
+    var aText=document.getElementById("te")
+    var onOff=true
+    aBut.onclick=function() {
+        if (onOff) {
+            aText.disabled = true
+        }else{
+            aText.disabled = false
+        }
+        onOff=!onOff
+    }
+</script>
+</html>
